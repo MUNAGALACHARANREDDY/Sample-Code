@@ -15,7 +15,7 @@ C_l_BB = A_BB * (l / 80.0) ** alpha * r
     
  # Add some Gaussian noise to simulate measurement errors
 
-noise = np.random.normal(0, 0.1 * C_l_BB, len(l))
+noise = np.random.normal(0, 0.1 * C_l_BB, len(l)) #len(l) specifies number of samples generated.
     
 return C_l_BB + noise
 
