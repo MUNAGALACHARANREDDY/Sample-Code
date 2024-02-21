@@ -8,9 +8,9 @@ import emcee
 import corner
 import numpy as np
 
+# Generate a simple B-mode power spectrum.
 def generate_bmode_spectrum(l, r, A_BB=1.0, alpha=-2.3):
- # Generate a B-mode power spectrum.
-
+ 
 C_l_BB = A_BB * (l / 80.0) ** alpha * r
     
  # Add some Gaussian noise to simulate measurement errors
