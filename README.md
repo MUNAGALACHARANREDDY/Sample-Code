@@ -7,30 +7,29 @@ import emcee
 import corner
 import numpy as np
 
-def generate_bmode_spectrum(ell, r, A_BB=1.0, alpha=-2.3):
+def generate_bmode_spectrum(l, r, A_BB=1.0, alpha=-2.3):
  # Generate a B-mode power spectrum.
-# Basic B-mode power spectrum model (simplified)
 
-C_ell_BB = A_BB * (ell / 80.0) ** alpha * r
+C_l_BB = A_BB * (l / 80.0) ** alpha * r
     
  # Add some Gaussian noise to simulate measurement errors
 
-noise = np.random.normal(0, 0.1 * C_ell_BB, len(ell))
+noise = np.random.normal(0, 0.1 * C_l_BB, len(l))
     
-return C_ell_BB + noise
+return C_l_BB + noise
 
 # Set the seed for reproducibility
 
 np.random.seed(100)
 
-# Example multipole moment array (ell values)
+# Example multipole moment array (l values)
 
-ell = np.arange(2, 301)
+l = np.arange(2, 301)
 
 # Generate B-mode spectra for a specific value of r
 
 r_example = 0.1
-spectrum = generate_bmode_spectrum(ell, r_example)
+spectrum = generate_bmode_spectrum(l, r_example)
 
 # spectrum now holds the generated data for the given r value
 
