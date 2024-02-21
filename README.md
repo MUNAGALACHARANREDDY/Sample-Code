@@ -33,6 +33,7 @@ r_example = 0.1      # Here I have given a hypothetical value meant to stimulate
 spectrum = generate_bmode_spectrum(l, r_example)
 
 # spectrum now holds the generated data for the given r value
+# now defining log-likelihood function.
 def
  
 log_likelihood(theta, ell, observed_spectrum): r, A_BB, alpha = theta  
