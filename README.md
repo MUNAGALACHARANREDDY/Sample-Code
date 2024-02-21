@@ -33,4 +33,33 @@ r_example = 0.1      # Here I have given a hypothetical value meant to stimulate
 spectrum = generate_bmode_spectrum(l, r_example)
 
 # spectrum now holds the generated data for the given r value
+def
+ 
+log_likelihood(theta, ell, observed_spectrum): r, A_BB, alpha = theta  
+# Unpack the parameters
+ model_spectrum = A_BB * (l / 80.0) ** alpha * r  
+# Predicted B-mode power spectrum without noise
+# Assume the variance of the observed data is known and constant for simplicity
+# In real scenarios, this could be estimated from the data or a more complex model
+
+    sigma2 = 0.1 ** 2
+  
+# Assuming the noise level used in the data generation
+# Compute the log-likelihood
+
+log_likelihood = -0.5* np.sum(((observed_spectrum - model_spectrum) ** 2) / sigma2 + np.log(2 * np.pi * sigma2))
+    
+return
+ log_likelihood
+
+# Example usage
+
+# Note: You should replace 'spectrum' with the actual observed data in practice
+
+theta_example = [0.1, 1.0, -2.3]  
+# Example parameter values [r, A_BB, alpha]
+
+log_likelihood_value = log_likelihood(theta_example, l, synthetic_spectrum)
+print
+("Log-likelihood:", log_likelihood_value)
 
