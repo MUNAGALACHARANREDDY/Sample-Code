@@ -13,7 +13,7 @@ def generate_bmode_spectrum(l, r, A_BB=1.0, alpha=-2.3):
  
 C_l_BB = A_BB * (l / 80.0) ** alpha * r
     
- # Add some Gaussian noise to simulate measurement errors
+ # Adding some Gaussian noise to simulate measurement errors
 
 noise = np.random.normal(0, 0.1 * C_l_BB, len(l)) #len(l) specifies number of samples generated.
     
