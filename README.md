@@ -1,2 +1,2 @@
 # Sample-Code
- using MCMC technique to estimate Tensor-to-Scalar ratio  'r'.
+ A simple Python code that uses the MCMC technique to estimate the Tensor-to-Scalar ratio  'r' as it is significant in detecting the primordial gravitational waves.
