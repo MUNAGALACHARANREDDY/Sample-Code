@@ -41,7 +41,7 @@ log_likelihood(theta, l, observed_spectrum):
 r, A_BB, alpha = theta  
  model_spectrum = A_BB * (l / 80.0) ** alpha * r  
 # Predicted B-mode power spectrum without noise
-# Assume the variance of the observed data is known and constant for simplicity
+# Assuming that the variance of the observed data is known and constant for simplicity
 # In real scenarios, this could be estimated from the data or a more complex model
 
     sigma2 = 0.1 ** 2
