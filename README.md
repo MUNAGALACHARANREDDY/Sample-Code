@@ -36,8 +36,9 @@ spectrum = generate_bmode_spectrum(l, r_example)
 # now defining log-likelihood function.
 def
  
-log_likelihood(theta, l, observed_spectrum): r, A_BB, alpha = theta  
-# Unpack the parameters
+log_likelihood(theta, l, observed_spectrum):
+# Unpack the parameters from theta 
+r, A_BB, alpha = theta  
  model_spectrum = A_BB * (l / 80.0) ** alpha * r  
 # Predicted B-mode power spectrum without noise
 # Assume the variance of the observed data is known and constant for simplicity
