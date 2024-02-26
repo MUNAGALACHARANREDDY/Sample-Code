@@ -85,6 +85,32 @@ theta_initial = [0.1, 1.0, -2.3]  # Initial guesses for r, A_BB, alpha
 log_prob_initial = log_probability(theta_initial, ell, synthetic_spectrum)
 print("Initial log probability:", log_prob_initial)
 
+#Initiate and run the MCMC sampler.
+
+# Number of dimensions (parameters) we're fitting. For example, r, A_BB, and alpha.
+ndim = 3
+# Number of walkers to use. This should be more than twice the number of dimensions.
+nwalkers = 24
+# Initial guesses for parameters [r, A_BB, alpha]
+
+initial_guesses = [0.1, 1.0, -2.3]
+pos = initial_guesses + 1e-4* np.random.randn(nwalkers, ndim)
+
+# Number of steps to run
+
+nsteps = 5000
+# Set up the sampler
+
+sampler = emcee.EnsembleSampler(nwalkers, ndim, log_probability)
+
+# Run the MCMC algorithm
+
+sampler.run_mcmc(pos, nsteps)
+
+# sampler.chain gives the chain of parameter values. Shape: (nwalkers, nsteps, ndim)
+
+# sampler.flatchain gives a flattened version useful for analysis.
+
 
 
 
