@@ -64,4 +64,10 @@ theta_example = [0.1, 1.0, -2.3]
 log_likelihood_value = log_likelihood(theta_example, ell, synthetic_spectrum)
 print
 ("Log-likelihood:", log_likelihood_value)
+#Defining log-prior distribution
+def log_prior(theta): r, A_BB, alpha = theta
+if 0.0 <= r <= 1.0 and 0.0 <= A_BB <= 10.0 and -4.0 <= alpha <= 0.0:
+return 0.0  # log(1) = 0, uniform prior
+return -np.inf  # log(0) = -inf, outside the prior range
+
 
