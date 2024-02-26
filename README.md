@@ -78,6 +78,13 @@ lp = log_prior(theta)
  if not np.isfinite(lp):
 return -np. inf  # Prior is 0, so posterior is also 0
  return lp + log_likelihood(theta, ell, observed_spectrum)
+# Assuming the log_likelihood function is defined as per the earlier discussion
+
+# Example usage:
+theta_initial = [0.1, 1.0, -2.3]  # Initial guesses for r, A_BB, alpha
+log_prob_initial = log_probability(theta_initial, ell, synthetic_spectrum)
+print("Initial log probability:", log_prob_initial)
+
 
 
 
