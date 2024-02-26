@@ -59,6 +59,7 @@ return
 # Note: You should replace 'spectrum' with the actual observed data in practice
 
 theta_example = [0.1, 1.0, -2.3]  
+
 # Example parameter values [r, A_BB, alpha]
 
 log_likelihood_value = log_likelihood(theta_example, ell, synthetic_spectrum)
@@ -69,5 +70,14 @@ def log_prior(theta): r, A_BB, alpha = theta
 if 0.0 <= r <= 1.0 and 0.0 <= A_BB <= 10.0 and -4.0 <= alpha <= 0.0:
 return 0.0  # log(1) = 0, uniform prior
 return -np.inf  # log(0) = -inf, outside the prior range
+
+#Defining Probability Function.
+
+def log_probability(theta, ell, observed_spectrum):
+lp = log_prior(theta)
+ if not np.isfinite(lp):
+return -np. inf  # Prior is 0, so posterior is also 0
+ return lp + log_likelihood(theta, ell, observed_spectrum)
+
 
 
