@@ -6,12 +6,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import emcee
 import corner
-import numpy as np
+
 
 # Generate a simple B-mode power spectrum.
 def generate_bmode_spectrum(ell, r, A_BB=1.0, alpha=-2.3):
  
-C_ell_BB = A_BB * (l / 80.0) ** alpha * r
+C_ell_BB = A_BB * (ell / 80.0) ** alpha * r
     
  # Adding some Gaussian noise to simulate measurement errors
 
@@ -33,10 +33,8 @@ r_example = 0.1      # Here I have given a hypothetical value meant to stimulate
 spectrum = generate_bmode_spectrum(ell, r_example)
 
 # spectrum now holds the generated data for the given r value
-# now defining log-likelihood function.
-def
- 
-log_likelihood(theta,ell, observed_spectrum):
+# Now defining log-likelihood function.
+def log_likelihood(theta,ell, observed_spectrum):
 # Unpack the parameters from theta 
 r, A_BB, alpha = theta  
  model_spectrum = A_BB * (ell / 80.0) ** alpha * r  
@@ -51,8 +49,7 @@ r, A_BB, alpha = theta
 
 log_likelihood = -0.5* np.sum(((observed_spectrum - model_spectrum) ** 2) / sigma2 + np.log(2 * np.pi * sigma2))
     
-return
- log_likelihood
+return log_likelihood
 
 # Example usage
 
@@ -62,11 +59,11 @@ theta_example = [0.1, 1.0, -2.3]
 
 # Example parameter values [r, A_BB, alpha]
 
-log_likelihood_value = log_likelihood(theta_example, ell, synthetic_spectrum)
+log_likelihood_value = log_likelihood(theta_example, ell, spectrum)
 print
 ("Log-likelihood:", log_likelihood_value)
 #Defining log-prior distribution
-def log_prior(theta): r, A_BB, alpha = theta
+def 'log_prior'(theta): r, A_BB, alpha = theta
 if 0.0 <= r <= 1.0 and 0.0 <= A_BB <= 10.0 and -4.0 <= alpha <= 0.0:
 return 0.0  # log(1) = 0, uniform prior
 return -np.inf  # log(0) = -inf, outside the prior range
