@@ -19,6 +19,7 @@ ell = np.arange(2, 301)
 
 # Generate B-mode spectra for a specific value of r
 r_example = 0.1
+# Here I have given a hypothetical value meant to stimulate a scenario where the effects of these waves are significant enough to be potentially observed in the data. 
 spectrum = generate_bmode_spectrum(ell, r_example)
 
 # Now defining log-likelihood function.
