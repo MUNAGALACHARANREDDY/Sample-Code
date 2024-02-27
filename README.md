@@ -66,6 +66,8 @@ samples = sampler.get_chain(discard=100, thin=15, flat=True)
 fig = corner.corner(samples, labels=["r", "A_BB", "alpha"])
 plt.show()
 
+#Note: The values I used for parameters like r, A, and alpha are just generic values, to mimic the real scenarios. 
+
 
 
 
